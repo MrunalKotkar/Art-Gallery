@@ -1,1 +1,1 @@
-"# Art-Gallery" 
+Art Gallery Management System that keeps record of artists, their paintings and contact details, art gallery details, exhibition details, details of events conducted during these exhibitions and showcases pictures of paintings under different categories to the customers.
