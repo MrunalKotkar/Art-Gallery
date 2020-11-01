@@ -1,2 +1,2 @@
-pillow == 2.7.0
+pillow  == 2.7.0
 django-crispy-forms == 1.9.2
