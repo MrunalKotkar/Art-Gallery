@@ -1,4 +1,4 @@
-# Art Gallery Management System
+<h1 Align= "center">Art Gallery Management System </h1>
 
 ## Objective
 
