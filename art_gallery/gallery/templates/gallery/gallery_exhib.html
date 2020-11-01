@@ -1,0 +1,50 @@
+{% extends 'gallery/main.html' %}
+{% load static %}
+
+{% block extra_js%}
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+    
+        <div class="col-lg-4">
+            <h2>Gallery </h2>
+            
+                <h6><strong>{{gallery.g_name}}</strong></h6>
+
+                
+                <h6><strong>Artist: {{gallery.artist}}</strong></h6>
+                <hr>
+
+            
+        </div>
+</div>
+<div class="row">   
+    {% for exhibition in exhibition %}
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <h1>Exhibition </h1>
+                <img class="thumbnail" src="{{exhibition.image.url}}">
+                    <h6><i>Gallery : {{exhibition.gallary.g_name}}</i></h6>
+                    <h6><i> Exhibition Name : {{ exhibition.exb_name}}</i></h6>
+                    <h6><i>Start Date : {{exhibition.start_date}}</i></h6>
+                    <h6><i>End Date : {{exhibition.end_date}}</i></h6>
+                    <h6><i>Start Time : {{exhibition.s_time}}</i></h6>
+                    <h6><i>End Time : {{exhibition.end_time}}</i></h6>
+                    
+                    <hr>
+                    <p><a class="btn btn-lg btn-primary" href="{% url 'exhib_event' exhibition.id %}" role="button">View Events »</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="container">
+    <br>
+    <a href="{% url 'gallery' %}"class="btn btn-warning"> Go Back </a>
+</div>
+
+{% endblock content %}

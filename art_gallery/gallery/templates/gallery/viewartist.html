@@ -1,0 +1,96 @@
+{% extends 'gallery/main.html' %}
+{% load static %}
+
+{% block extra_js%}
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>Gallery</h1>
+    <div class="row">
+        
+    {% for gallery in gallery %}
+        <div class="col-lg-4">
+            <img class="thumbnail" src="{{gallery.image.url}}">
+            <div class="box-element product">
+                <h6><strong>{{gallery.g_name}}</strong></h6>
+
+                <h6><i>{{gallery.location}}</i></h6>
+                <h6><strong>{{gallery.artist}}</strong></h6>
+                <hr>
+
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default{{gallery.g_id}}">
+				View Artist
+				</button>
+
+				
+                <a class="btn btn-outline-success" href="#">Exhibitions</a>
+
+			</div>
+			
+			
+        </div>
+    {% endfor %}
+    </div>
+    
+	<h1>Artist</h1>
+	<div class="row">
+        
+        {% for artist in artist %}
+            <div class="col-lg-4">
+                <img class="thumbnail" src="{{artist.image.url}}">
+                <div class="box-element product">
+                    <h6><i>Artist : {{artist.a_name}}</i></h6>
+                    <h6><i>Email-Id : {{artist.email}}</i></h6>
+                    <h6><i>Address : {{artist.address}}</i></h6>
+                    <h6><i>Style : {{artist.style}}</i></h6>
+                    <hr>
+    
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default{{artist}}">
+                      View 
+                    </button>
+
+                <h4 style="display: inline-block; float:right;"><strong>Age : {{artist.age}}</strong></h4>
+
+                <br>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <h1>Painting</h1>
+    <div class="row">
+        
+        {% for painting in painting %}
+            <div class="col-lg-4">
+                <a href="javascript:window.open('{{painting.image.url}}','_blank','toolbar=no,menubar=no,resizable=yes,scrollbars=yes')"><img class="thumbnail" src="{{painting.image.url}}">
+                </a>
+                <div class="box-element product">
+                    <h6><i>Type : {{painting.p_type}}</i></h6>
+                    <h6><i>Title : {{painting.title}}</i></h6>
+                    <h6><i>Artist : {{painting.artist}}</i></h6>
+                    <h6><i>Year : {{painting.yearmade}}</i></h6>
+                    <h6><i>Price : {{painting.price}}</i></h6>
+                    
+                    <hr>
+                    
+                    
+                    
+                    
+                    <h4 style="display: inline-block; float:right;"><strong>Sold : {{painting.sold}}</strong></h4>
+    
+                    <br>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    
+
+
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends 'gallery/main.html' %}
+{% load static %}
+
+{% block extra_js%}
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+            <h2>Watch Galleries and Paintings of {{ artist }} here!</h2>
+
+            <h2>Galleries : </h2>
+
+            <div class="row">
+                {% for gallery in gallery %}
+                    <div class="col-lg-4">
+                        <img class="thumbnail" src="{{gallery.image.url}}">
+                        <div class="box-element product">
+                            <h6><strong>{{gallery.g_name}}</strong></h6>
+                        </div>
+                        
+                    </div>
+                {% endfor %}
+            </div>
+
+            <h2>Paintings : </h2>
+
+            <div class="row">
+                {% for painting in painting %}
+                    <div class="col-lg-4">
+                        <img class="thumbnail" src="{{painting.image.url}}">
+                        <div class="box-element product">
+                            <h6><strong>{{painting.title}}</strong></h6>
+                        </div>
+                        
+                    </div>
+                {% endfor %}
+            </div>
+            
+            
+            
+
+            
+            
+
+
+            <div class="container">
+                <br>
+                <a href="{% url 'artist' %}"class="btn btn-warning"> Go Back </a>
+            </div>
+
+{% endblock content %}

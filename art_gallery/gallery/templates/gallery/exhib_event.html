@@ -1,0 +1,48 @@
+{% extends 'gallery/main.html' %}
+{% load static %}
+
+{% block extra_js%}
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container-fluid my-5 px-5">
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Exhibition! {{ exhibition.exb_name }}</h1>
+            <h5 class="display-5">Gallery : {{ exhibition.gallary.g_name }}</h5>
+            <p>Following are the events which will be conducted during this exhibition</p>
+            <div><img src="/static/image/expo.jpg" style = "background-image"></div>
+        </div>
+    </div>
+
+
+
+<div class="row">
+    {% for event in events %}
+        <div class="col-lg-4">
+            <div class="box-element product">
+            <h2>Event </h2>
+                <h6><i>Exhibition : {{event.exhibition}}</i></h6>
+                <h6><i> Event Name : {{ event.e_name}}</i></h6>
+                <h6><i> Date : {{event.date}}</i></h6>
+                <h6><i>Start Time : {{event.s_time}}</i></h6>
+                <h6><i>End Time : {{event.end_time}}</i></h6>
+                
+                <hr>
+                
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="container">
+    <br>
+    <a href="{% url 'gallery' %}"class="btn btn-warning"> Go Back </a>
+</div>
+
+{% endblock %}

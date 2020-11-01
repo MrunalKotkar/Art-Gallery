@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Art Gallery</title>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+	
+	<script type="text/javascript">
+		var user = '{{request.user}}'
+
+		function getToken(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getToken('csrftoken')
+
+		function getCookie(name) {
+		    // Split cookie string and get all individual name=value pairs in an array
+		    var cookieArr = document.cookie.split(";");
+
+		    // Loop through the array elements
+		    for(var i = 0; i < cookieArr.length; i++) {
+		        var cookiePair = cookieArr[i].split("=");
+
+		        /* Removing whitespace at the beginning of the cookie name
+		        and compare it with the given string */
+		        if(name == cookiePair[0].trim()) {
+		            // Decode the cookie value and return
+		            return decodeURIComponent(cookiePair[1]);
+		        }
+		    }
+
+		    // Return null if not found
+		    return null;
+		}
+		var cart = JSON.parse(getCookie('cart'))
+
+		if (cart == undefined){
+			cart = {}
+			console.log('Cart Created!', cart)
+			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+		}
+		console.log('Cart:', cart)
+
+		$('#exampleModal').on('show.bs.modal', function (event) {
+			var button = $(event.relatedTarget) // Button that triggered the modal
+			var recipient = button.data('whatever') // Extract info from data-* attributes
+			// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+			// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+			var modal = $(this)
+			modal.find('.modal-title').text('New message to ' + recipient)
+			modal.find('.modal-body input').val(recipient)
+		})
+	
+	</script>
+
+		
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="{% url 'dashboard' %}"> <img src="/static/image/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">  Art Gallery</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    
+	    
+            <ul class="navbar-nav mr-auto">
+				
+				<li class="nav-item active">
+					<a class="nav-link" href="{% url 'gallery' %}">Gallery <span class="sr-only">(current)</span></a>
+				</li>
+				
+				<li class="nav-item active">
+                  <a class="nav-link" href="{% url 'artist' %}">Artist <span class="sr-only">(current)</span></a>
+				</li>
+				
+				<li class="nav-item active">
+					<a class="nav-link" href="{% url 'exhibition' %}">Exhibitions <span class="sr-only">(current)</span></a>
+				  </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'list_of_events' %}">Events <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active">
+                    <a class="nav-link" href="{% url 'event' %}">Upcoming Event <span class="sr-only">(current)</span></a>
+                </li>
+           
+              </ul>
+
+        <div class="form-inline my-2 my-lg-0">
+			<a class="p-2 text-light" href="/gallery/profile">Profile</a>
+	     	<a class="p-2 text-light" href="/logout">Logout</a>
+	     	
+	    
+
+	    </div>
+	  </div>
+    </nav>
+    
+
+	<h2 style='text-align:center' >Paintings</h2>
+	<div class="container-fluid my-5 px-5" >
+
+		<div class="row">
+			{% for painting in painting %}
+				<div class="col-lg-4">
+					<a href="javascript:window.open('{{painting.image.url}}','_blank','toolbar=no,menubar=no,resizable=yes,scrollbars=yes')"><img class="thumbnail" src="{{painting.image.url}}">
+					</a>
+					<div class="box-element product">
+						<h6><i>Type : {{painting.p_type}}</i></h6>
+						<h6><i>Title : {{painting.title}}</i></h6>
+						<h6><i>Artist : {{painting.artist}}</i></h6>
+						<h6><i>Year : {{painting.yearmade}}</i></h6>
+						<h6><i>Price : Rs. {{painting.price | floatformat:2}}</i></h6>
+						
+						<hr>
+						
+						<h4 style="display: inline-block; float:right;"><strong>Sold : {{painting.sold}}</strong></h4>
+		
+						
+						
+						
+
+						<form action="{% url 'like_painting' painting.pk %}" method="POST">
+							{% csrf_token %}
+							
+							<button type="submit", name="painting_id", value="{{ painting.id }}" class="btn btn-primary btn-sm">
+								Like
+							</button> <i><strong> {{ painting.total_likes }} Likes</strong></i>
+							
+							
+
+							
+						</form> 
+
+						<br>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="container">
+		<br>
+		<strong>Note : </strong> Click on the image to see the painting
+	</div>
+	
+	
+
+	<div class="container">
+        <br>
+        <a href="{% url 'addpainting' %}"class="btn btn-warning"> Add Painting </a>
+    </div>
+	
+	
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+
+	<script>// Get the img object using its Id 
+		//img = document.getElementById("img1");
+		function enlargeImg(img) { 
+        // Set image size to 1.5 times original 
+        img.style.marginLeft = "400px"
+		img.style.marginTop = "100px"
+		img.style.marginRight = "400px"
+		img.style.transform= "scale(2.5,2.5)";
+        // Animation effect  
+        img.style.transition = "transform 0.25s ease";
+		
+      } 
+	</script>
+</body>
+</html>
