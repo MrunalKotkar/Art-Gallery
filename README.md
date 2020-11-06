@@ -63,9 +63,6 @@ Framework:
 Database:
 - Sqlite3 
 
-## Features
-
-![alt text](https://github.com/MrunalKotkar/Art-Gallery/blob/main/art_gallery/Snapshots/HomePage.png){ width=50% }
 
 
 
