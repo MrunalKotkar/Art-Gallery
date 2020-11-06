@@ -62,3 +62,6 @@ Framework:
 
 Database:
 - Sqlite3 
+
+## Interface
+![alt text](art_gallery/Snapshots/HomePage.png)
