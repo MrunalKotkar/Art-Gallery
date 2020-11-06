@@ -59,5 +59,8 @@ To build an Art Gallery Management System for interactions between artists, cust
 
 ## User Side Features:
 
-1. This project allows artists and customer types of users.
-2. 
+1. This project allows artists and customers types of users.
+2. They can visit and have a look at galleries where the exhibitions and events will be conducted.
+3. Users can also book tickets for the event they wish to attend.
+4. They can also like the paintings of their choice.
+5. Artists can also edit their information and add gallery of thier own.
