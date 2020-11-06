@@ -64,6 +64,7 @@ Database:
 - Sqlite3 
 
 
+## Artist
 
-
+https://github.com/MrunalKotkar/Art-Gallery/blob/main/art_gallery/Snapshots/Artists.png?raw=true
 
