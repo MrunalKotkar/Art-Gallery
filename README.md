@@ -65,4 +65,4 @@ Database:
 
 ## Interface :
 
-![alt text height = 200](art_gallery/Snapshots/HomePage.png)
+![alt text](art_gallery/Snapshots/HomePage.png)
