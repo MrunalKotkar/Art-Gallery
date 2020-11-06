@@ -1,5 +1,11 @@
 <h1 Align= "center">Art Gallery Management System </h1>
 
+## Members
+
+- 111803156 : Radhika Kandoi
+- 111803157 : Mrunal Kotkar
+- 111803177 : Aditi Medhane
+
 ## Objective
 
 To build an Art Gallery Management System for interactions between artists, customers, Art Enthusiasts.
