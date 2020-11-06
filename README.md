@@ -67,8 +67,16 @@ Database:
 
 ![alt text](art_gallery/Snapshots/HomePage.png)
 
+
+
 ![alt text](art_gallery/Snapshots/LoginUser.png)
 
+
+
+
 ![alt text](art_gallery/Snapshots/Galleries.png)
+
+
+
 
 ![alt text](art_gallery/Snapshots/Paintings.png)
