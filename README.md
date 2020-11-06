@@ -48,3 +48,16 @@ To build an Art Gallery Management System for interactions between artists, cust
 ## ER-diagram:
 
 ![alt text](https://github.com/MrunalKotkar/Art-Gallery/blob/main/art_gallery/ERDiagram.png)
+
+
+## Admin Side Features:
+
+1. Admins have all permissions and can create, delete and modify database.
+2. Admin can also add and delete artists, galleries, paintings, exhibitions and events and edit their information.
+3. Admin also have the right to look into login and registration of users.
+
+
+## User Side Features:
+
+1. This project allows artists and customer types of users.
+2. 
