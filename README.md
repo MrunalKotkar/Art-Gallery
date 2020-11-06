@@ -64,4 +64,5 @@ Database:
 - Sqlite3 
 
 ## Interface
-![alt text](art_gallery/Snapshots/HomePage.png)
+
+![alt text width=600](art_gallery/Snapshots/HomePage.png)
