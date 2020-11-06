@@ -65,4 +65,4 @@ Database:
 
 ## Interface :
 
-![test image size](art_gallery/Snapshots/HomePage.png){:height="30%" width="50%"}
+![alt text](art_gallery/Snapshots/HomePage.png)
