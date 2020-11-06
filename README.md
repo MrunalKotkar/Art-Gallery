@@ -8,16 +8,7 @@
 
 ## Project Description
 
-To build an Art Gallery Management System for interactions between artists, customers, Art Enthusiasts.
-- To maintain record of Galleries, Exhibitions in respective gallery with multiple Events happening in exhibitions!
-- To maintain record of Artists, their paintings and contact details.
-- To showcase Paintings of various artists under diffrent categories for Customers to buy.
-
-## Abstract
-- Login page according to user type Administrator, Artists and Customer is designed.
-- Artists can login through their account and include details about new paintings made by them or other information.
-- Customers can login through their account and see different paintings available for selling purpose.
-- Administrator can include details about new art gallery, upcoming exhibition details and will also manage event details and their timings which will be conducted during        these exhibitions.
+This is an Art Gallery Management System for interactions between artists, customers and Art Enthusiasts. This system maintains records of Galleries, Exhibitions in respective gallery with multiple Events happening in exhibitions! It also maintains record of Artists, their paintings and contact details. It shows Paintings of various artists and their information with contact details and galleries of those artists respectively. It has the functionality in which artists can add their galleries as well as paintings. It also includes the like button through which customers can like the paintings according to their own interest.
 
 ## ER-diagram:
 
@@ -61,8 +52,16 @@ To build an Art Gallery Management System for interactions between artists, cust
     
 ### Software Requirements:
 	
-      1.Front end:	Python, Django Framework, HTML5, Bootstrap
-      2.Back end : 	SQLite 
+Programming Languages:
+- Python3
+- HTML5
+- CSS
+
+Framework:
+- Django
+
+Database:
+- Sqlite3 
 
 
 
