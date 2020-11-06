@@ -65,7 +65,7 @@ Database:
 
 ## Features
 
-![alt text](https://github.com/MrunalKotkar/Art-Gallery/blob/main/art_gallery/Snapshots/HomePage.png =100x20)
+![alt text](https://github.com/MrunalKotkar/Art-Gallery/blob/main/art_gallery/Snapshots/HomePage.png){ width=50% }
 
 
 
