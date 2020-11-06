@@ -63,6 +63,6 @@ Framework:
 Database:
 - Sqlite3 
 
-## Interface
+## Interface :
 
-![alt text width=600](art_gallery/Snapshots/HomePage.png)
+![alt text height = 200](art_gallery/Snapshots/HomePage.png)
