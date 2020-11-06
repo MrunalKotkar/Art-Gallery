@@ -67,14 +67,27 @@ Database:
 
 ![alt text](art_gallery/Snapshots/HomePage.png)
 
-## 
+## Login Page
 
 ![alt text](art_gallery/Snapshots/LoginUser.png)
 
-##
+## Artists
+
+![alt text](art_gallery/Snapshots/Artists.png)
+
+
+## Galleries
 
 ![alt text](art_gallery/Snapshots/Galleries.png)
 
-##
+## Paintings
 
 ![alt text](art_gallery/Snapshots/Paintings.png)
+
+## Exhibitions
+
+![alt text](art_gallery/Snapshots/Exhibitions.png)
+
+## Events
+
+![alt text](art_gallery/Snapshots/Event_add.png)
